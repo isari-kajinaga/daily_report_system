@@ -27,6 +27,14 @@
 <input type="password" name="${AttributeConst.EMP_PASS.getValue()}" />
 <br /><br />
 
+<label for="${AttributeConst.EMP_BOSS_FLG.getValue()}">役職</label><br />
+<select name="${AttributeConst.EMP_BOSS_FLG.getValue()}">
+    <option value="${AttributeConst.EMP_GENERAL.getIntegerValue()}"<c:if test="${employee.bossFlag == AttributeConst.EMP_GENERAL.getIntegerValue()}"> selected</c:if>>一般社員</option>
+    <option value="${AttributeConst.EMP_CHIEF.getIntegerValue()}"<c:if test="${employee.bossFlag == AttributeConst.EMP_CHIEF.getIntegerValue()}"> selected</c:if>>主任</option>
+    <option value="${AttributeConst.EMP_MANAGER.getIntegerValue()}"<c:if test="${employee.bossFlag == AttributeConst.EMP_MANAGER.getIntegerValue()}"> selected</c:if>>課長</option>
+</select>
+<br><br>
+
 <label for="${AttributeConst.EMP_ADMIN_FLG.getValue()}">権限</label><br />
 <select name="${AttributeConst.EMP_ADMIN_FLG.getValue()}">
     <option value="${AttributeConst.ROLE_GENERAL.getIntegerValue()}"<c:if test="${employee.adminFlag == AttributeConst.ROLE_GENERAL.getIntegerValue()}"> selected</c:if>>一般</option>

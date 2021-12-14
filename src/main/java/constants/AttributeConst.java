@@ -43,8 +43,9 @@ public enum AttributeConst {
     DEL_FLAG_FALSE(0),
 
     //上司フラグ
-    EMP_BOSS(1),
-    EMP_SUB(0),
+    EMP_MANAGER(2),
+    EMP_CHIEF(1),
+    EMP_GENERAL(0),
 
     //承認フラグ
     APP_FLAG_TRUE(1),

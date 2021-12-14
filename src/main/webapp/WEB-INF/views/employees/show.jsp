@@ -29,6 +29,13 @@
                             <c:when test="${employee.adminFlag == AttributeConst.ROLE_ADMIN.getIntegerValue()}">管理者</c:when>
                             <c:otherwise>一般</c:otherwise>
                         </c:choose></td>
+                <tr>
+                    <th>役職</th>
+                    <td><c:choose>
+                            <c:when test="${employee.bossFlag == AttributeConst.EMP_GENERAL.getIntegerValue()}">一般社員</c:when>
+                            <c:when test="${employee.bossFlag == AttributeConst.EMP_CHIEF.getIntegerValue()}">主任</c:when>
+                            <c:otherwise>課長</c:otherwise>
+                        </c:choose>
                 </tr>
                 <tr>
                     <th>登録日時</th>

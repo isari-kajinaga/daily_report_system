@@ -29,8 +29,9 @@ public interface JpaConst {
     int ROLE_GENERAL = 0; //管理者権限OFF(一般)
     int EMP_DEL_TRUE = 1; //削除フラグON(削除済み)
     int EMP_DEL_FALSE = 0; //削除フラグOFF(現役)
-    int EMP_BOSS = 1; //上司フラグON（上司）
-    int EMP_SUBORDINATE = 0; //上司フラグOFF（部下)
+    int EMP_MANAGER = 2; //上司フラグON（課長）
+    int EMP_CHIEF = 1; //上司フラグON（主任）
+    int EMP_GENERAL = 0; //上司フラグOFF（部下)
     int REP_APP_TRUE = 1; //承認済の日報
     int REP_APP_FALSE = 0; //未承認の日報
 

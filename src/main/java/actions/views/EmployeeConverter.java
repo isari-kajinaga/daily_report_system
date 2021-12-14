@@ -39,9 +39,11 @@ public class EmployeeConverter {
                                 : JpaConst.EMP_DEL_FALSE,
                 ev.getBossFlag() == null
                         ? null
-                        : ev.getBossFlag() == AttributeConst.EMP_BOSS.getIntegerValue()
-                                ?JpaConst.EMP_BOSS
-                                :JpaConst.EMP_SUBORDINATE);
+                        : ev.getBossFlag() == AttributeConst.EMP_GENERAL.getIntegerValue()
+                                ?JpaConst.EMP_GENERAL
+                                :ev.getBossFlag() == AttributeConst.EMP_CHIEF.getIntegerValue()
+                                        ?JpaConst.EMP_CHIEF
+                                        :JpaConst.EMP_MANAGER);
     }
 
     /**
@@ -74,9 +76,13 @@ public class EmployeeConverter {
                                 : AttributeConst.DEL_FLAG_FALSE.getIntegerValue(),
                 e.getBossFlag() == null
                         ? null
-                        : e.getBossFlag() == AttributeConst.EMP_BOSS.getIntegerValue()
-                                ?JpaConst.EMP_BOSS
-                                :JpaConst.EMP_SUBORDINATE);
+                        : e.getBossFlag() == AttributeConst.EMP_GENERAL.getIntegerValue()
+                                ?JpaConst.EMP_GENERAL
+                                        : e.getBossFlag() == AttributeConst.EMP_GENERAL.getIntegerValue()
+                                        ?JpaConst.EMP_GENERAL
+                                        :e.getBossFlag() == AttributeConst.EMP_CHIEF.getIntegerValue()
+                                                ?JpaConst.EMP_CHIEF
+                                                :JpaConst.EMP_MANAGER);
     }
 
     /**
