@@ -52,4 +52,9 @@ public class ReportView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
+
+    /**
+     * 承認された日報かどうか
+     */
+    private Integer approvalFlag;
 }

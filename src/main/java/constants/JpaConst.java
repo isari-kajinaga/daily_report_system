@@ -23,11 +23,16 @@ public interface JpaConst {
     String EMP_COL_CREATED_AT = "created_at"; //登録日時
     String EMP_COL_UPDATED_AT = "updated_at"; //更新日時
     String EMP_COL_DELETE_FLAG = "delete_flag"; //削除フラグ
+    String EMP_COL_BOSS_FLAG = "boss_flag"; //上司フラグ
 
     int ROLE_ADMIN = 1; //管理者権限ON(管理者)
     int ROLE_GENERAL = 0; //管理者権限OFF(一般)
     int EMP_DEL_TRUE = 1; //削除フラグON(削除済み)
     int EMP_DEL_FALSE = 0; //削除フラグOFF(現役)
+    int EMP_BOSS = 1; //上司フラグON（上司）
+    int EMP_SUBORDINATE = 0; //上司フラグOFF（部下)
+    int REP_APP_TRUE = 1; //承認済の日報
+    int REP_APP_FALSE = 0; //未承認の日報
 
     //日報テーブル
     String TABLE_REP = "reports"; //テーブル名
@@ -39,6 +44,7 @@ public interface JpaConst {
     String REP_COL_CONTENT = "content"; //日報の内容
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
+    String REP_COL_APPROVAL_FLAG = "approval_flag"; //承認されたレポートかどうか
 
     //Entity名
     String ENTITY_EMP = "employee"; //従業員

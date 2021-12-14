@@ -114,7 +114,8 @@ public class ReportAction extends ActionBase {
                     getRequestParam(AttributeConst.REP_TITLE),
                     getRequestParam(AttributeConst.REP_CONTENT),
                     null,
-                    null);
+                    null,
+                    toNumber(getRequestParam(AttributeConst.REP_APP_FLG)));
 
             //日報情報登録
             List<String> errors = service.create(rv);

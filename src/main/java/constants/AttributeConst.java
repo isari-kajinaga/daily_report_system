@@ -32,6 +32,7 @@ public enum AttributeConst {
     EMP_PASS("password"),
     EMP_NAME("name"),
     EMP_ADMIN_FLG("admin_flag"),
+    EMP_BOSS_FLG("boss_flag"),
 
     //管理者フラグ
     ROLE_ADMIN(1),
@@ -41,6 +42,14 @@ public enum AttributeConst {
     DEL_FLAG_TRUE(1),
     DEL_FLAG_FALSE(0),
 
+    //上司フラグ
+    EMP_BOSS(1),
+    EMP_SUB(0),
+
+    //承認フラグ
+    APP_FLAG_TRUE(1),
+    APP__FLAG_FALSE(0),
+
     //日報管理
     REPORT("report"),
     REPORTS("reports"),
@@ -48,7 +57,8 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content");
+    REP_CONTENT("content"),
+    REP_APP_FLG("approval_flag");
 
     private final String text;
     private final Integer i;
