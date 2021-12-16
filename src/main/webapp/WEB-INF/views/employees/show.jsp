@@ -35,7 +35,7 @@
                             <c:when test="${employee.bossFlag == AttributeConst.EMP_GENERAL.getIntegerValue()}">一般社員</c:when>
                             <c:when test="${employee.bossFlag == AttributeConst.EMP_CHIEF.getIntegerValue()}">主任</c:when>
                             <c:otherwise>課長</c:otherwise>
-                        </c:choose>
+                        </c:choose></td>
                 </tr>
                 <tr>
                     <th>登録日時</th>

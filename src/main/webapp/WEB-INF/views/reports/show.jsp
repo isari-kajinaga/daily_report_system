@@ -37,12 +37,25 @@
                     <fmt:parseDate value="${report.updatedAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="updateDay" type="date" />
                     <td><fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
+                <tr>
+                    <th>上司承認</th>
+                    <td><c:choose>
+                            <c:when test="${report.approvalFlag == AttributeConst.APP_FLAG_TRUE.getIntegerValue()}">承認済</c:when>
+                            <c:otherwise>未承認</c:otherwise>
+                        </c:choose></td>
+                </tr>
             </tbody>
         </table>
 
         <c:if test="${sessionScope.login_employee.id == report.employee.id}">
             <p>
                 <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
+            </p>
+        </c:if>
+
+        <c:if test="${sessionScope.login_employee.bossFlag > report.employee.bossFlag}">
+            <p>
+                <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を承認する</a>
             </p>
         </c:if>
 

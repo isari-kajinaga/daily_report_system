@@ -49,7 +49,7 @@ public enum AttributeConst {
 
     //承認フラグ
     APP_FLAG_TRUE(1),
-    APP__FLAG_FALSE(0),
+    APP_FLAG_FALSE(0),
 
     //日報管理
     REPORT("report"),

@@ -95,7 +95,7 @@ public class Employee {
     private Integer deleteFlag;
 
     /**
-     * 役職者かどうか（一般：０、主任：１）
+     * 役職者かどうか（一般：０、主任：１、課長：２）
      */
     @Column(name = JpaConst.EMP_COL_BOSS_FLAG, nullable = false)
     private Integer bossFlag;

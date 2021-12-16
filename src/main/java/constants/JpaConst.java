@@ -32,8 +32,7 @@ public interface JpaConst {
     int EMP_MANAGER = 2; //上司フラグON（課長）
     int EMP_CHIEF = 1; //上司フラグON（主任）
     int EMP_GENERAL = 0; //上司フラグOFF（部下)
-    int REP_APP_TRUE = 1; //承認済の日報
-    int REP_APP_FALSE = 0; //未承認の日報
+
 
     //日報テーブル
     String TABLE_REP = "reports"; //テーブル名
@@ -46,6 +45,9 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
     String REP_COL_APPROVAL_FLAG = "approval_flag"; //承認されたレポートかどうか
+
+    int REP_APP_TRUE = 1; //承認済の日報
+    int REP_APP_FALSE = 0; //未承認の日報
 
     //Entity名
     String ENTITY_EMP = "employee"; //従業員

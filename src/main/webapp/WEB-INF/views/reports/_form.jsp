@@ -30,4 +30,15 @@
 <br /><br />
 <input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
+
+<c:if test="${sessionScope.login_employee.bossFlag > report.employee.bossFlag}">
+        <br><br>
+            <label for="${AttributeConst.REP_APP_FLG.getValue()}">日報承認</label><br />
+            <select name="${AttributeConst.REP_APP_FLG.getValue()}">
+                <option value="${AttributeConst.APP_FLAG_TRUE.getIntegerValue()}"<c:if test="${report.approvalFlag == AttributeConst.APP_FLAG_TRUE.getIntegerValue()}"> selected</c:if>>承認済</option>
+                <option value="${AttributeConst.APP_FLAG_FALSE.getIntegerValue()}"<c:if test="${report.approvalFlag == AttributeConst.APP_FLAG_FALSE.getIntegerValue()}"> selected</c:if>>未承認</option>
+            </select>
+        <br><br>
+</c:if>
+
 <button type="submit">投稿</button>
