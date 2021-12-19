@@ -6,6 +6,7 @@
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
+<c:set var="commApp" value="${ForwardConst.CMD_APPROVAL.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -54,9 +55,11 @@
         </c:if>
 
         <c:if test="${sessionScope.login_employee.bossFlag > report.employee.bossFlag}">
-            <p>
-                <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を承認する</a>
-            </p>
+            <form method="POST" action="<c:url value='?action=${actRep}&command=${commApp}' />">
+                <br />
+                <input type="hidden" name="${AttributeConst.REP_APP_FLG.getValue()}" value="${AttributeConst.APP_FLAG_TRUE.getIntegerValue()}" />
+                <button type="submit">日報承認</button>
+            </form>
         </c:if>
 
         <p>
