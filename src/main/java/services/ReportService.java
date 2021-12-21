@@ -121,6 +121,17 @@ public class ReportService extends ServiceBase {
     }
 
     /**
+     * 画面から入力された日報の登録内容を元に、日報データを承認する
+     * @param rv 日報の更新内容
+     * @return バリデーションで発生したエラーのリスト
+     */
+    public void approval(ReportView rv) {
+
+            updateInternal(rv);
+        }
+
+
+    /**
      * idを条件にデータを1件取得する
      * @param id
      * @return 取得データのインスタンス

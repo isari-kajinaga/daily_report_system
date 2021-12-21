@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="constants.ForwardConst" %>
+<%@ page import="constants.AttributeConst" %>
+
 
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
@@ -57,6 +59,9 @@
         <c:if test="${sessionScope.login_employee.bossFlag > report.employee.bossFlag}">
             <form method="POST" action="<c:url value='?action=${actRep}&command=${commApp}' />">
                 <br />
+                <input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
+                <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
+
                 <input type="hidden" name="${AttributeConst.REP_APP_FLG.getValue()}" value="${AttributeConst.APP_FLAG_TRUE.getIntegerValue()}" />
                 <button type="submit">日報承認</button>
             </form>
