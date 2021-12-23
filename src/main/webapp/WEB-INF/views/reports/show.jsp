@@ -61,7 +61,6 @@
                 <br />
                 <input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
                 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-
                 <input type="hidden" name="${AttributeConst.REP_APP_FLG.getValue()}" value="${AttributeConst.APP_FLAG_TRUE.getIntegerValue()}" />
                 <button type="submit">日報承認</button>
             </form>

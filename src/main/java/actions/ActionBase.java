@@ -195,6 +195,11 @@ public abstract class ActionBase {
         return request.getParameter(key.getValue());
     }
 
+    @SuppressWarnings("unchecked")
+    protected <E> E getRequestParameter(AttributeConst key) {
+        return (E) request.getParameter(key.getValue());
+    }
+
     /**
      * リクエストスコープにパラメータを設定する
      * @param key パラメータ名

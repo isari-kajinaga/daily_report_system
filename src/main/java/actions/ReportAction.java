@@ -51,7 +51,7 @@ public class ReportAction extends ActionBase {
 
         putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
         putRequestScope(AttributeConst.REP_COUNT, reportsCount); //全ての日報データの件数
-        putRequestScope(AttributeConst.PAGE, page); //ページ数
+        putRequestScope(AttributeConst.PAGE, page); //ペー ジ数
         putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
 
         //セッションにフラッシュメッセージが設定されている場合はリクエストスコープに移し替え、セッションからは削除する
@@ -259,6 +259,38 @@ public class ReportAction extends ActionBase {
 
             //一覧画面にリダイレクト
             redirect(ForwardConst.ACT_REP, ForwardConst.CMD_INDEX);
+   }
+    /**
+     * 検索を行う
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void search() throws ServletException, IOException {
 
+        //セッションから検索した従業員情報を取得
+        EmployeeView searchEmployee = (EmployeeView) getRequestParameter(AttributeConst.EMP_NAME);
+
+        //検索した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得する
+        int page = getPage();
+        List<ReportView> reports = service.getMinePerPage(searchEmployee, page);
+
+        //検索した従業員が作成した日報データの件数を取得
+        long searchReportsCount = service.countAllMine(searchEmployee);
+
+        putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
+        putRequestScope(AttributeConst.REP_COUNT, searchReportsCount); //全ての日報データの件数
+        putRequestScope(AttributeConst.PAGE, page); //ペー ジ数
+        putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコードの数
+
+        //セッションにフラッシュメッセージが設定されている場合はリクエストスコープに移し替え、セッションからは削除する
+        String flush = getSessionScope(AttributeConst.FLUSH);
+        if (flush != null) {
+            putRequestScope(AttributeConst.FLUSH, flush);
+            removeSessionScope(AttributeConst.FLUSH);
         }
+
+        //一覧画面を表示
+        forward(ForwardConst.FW_REP_SEARCH);
+
+    }
 }

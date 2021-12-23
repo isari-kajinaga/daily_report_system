@@ -61,6 +61,7 @@ public enum AttributeConst {
     REP_CONTENT("content"),
     REP_APP_FLG("approval_flag");
 
+
     private final String text;
     private final Integer i;
 
