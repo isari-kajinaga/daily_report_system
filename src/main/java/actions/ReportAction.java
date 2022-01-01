@@ -268,14 +268,14 @@ public class ReportAction extends ActionBase {
     public void search() throws ServletException, IOException {
 
         //セッションから検索した従業員情報を取得
-        EmployeeView searchEmployee = (EmployeeView) getRequestParameter(AttributeConst.EMP_NAME);
+        String searchEmployee = getRequestParam(AttributeConst.EMP_NAME);
 
         //検索した従業員が作成した日報データを、指定されたページ数の一覧画面に表示する分取得する
         int page = getPage();
-        List<ReportView> reports = service.getMinePerPage(searchEmployee, page);
+        List<ReportView> reports = service.getSearchPerPage(searchEmployee, page);
 
         //検索した従業員が作成した日報データの件数を取得
-        long searchReportsCount = service.countAllMine(searchEmployee);
+        long searchReportsCount = service.countAllSearch(searchEmployee);
 
         putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
         putRequestScope(AttributeConst.REP_COUNT, searchReportsCount); //全ての日報データの件数

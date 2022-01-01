@@ -20,11 +20,12 @@
         </c:if>
         <h2>日報　一覧</h2>
         <form method="POST" action="<c:url value='?action=${actRep}&command=${commSearch}'/>">
-            <label for="${AttributeConst.EMP_NAME.getValue()}">従業員検索</label>
-            <input type="text" name="${AttributeConst.EMP_NAME.getValue()}" value="${employee.name}">
+            <label for="${AttributeConst.EMP_NAME.getValue()}">従業員名で日報検索</label>
+            <input type="text" name="${AttributeConst.EMP_NAME.getValue()}" value="${report.employee.name}">
             <button type="submit">検索</button>
 
         </form><br>
+
         <table id="report_list">
             <tbody>
                 <tr>
@@ -37,7 +38,7 @@
                 <c:forEach var="report" items="${reports}" varStatus="status">
                     <fmt:parseDate value="${report.reportDate}" pattern="yyyy-MM-dd" var="reportDay" type="date" />
 
-                    <tr class="row${status.count % 2}">
+                    <tr class="row${report.approvalFlag}">
                         <td class="report_name"><c:out value="${report.employee.name}" /></td>
                         <td class="report_date"><fmt:formatDate value='${reportDay}' pattern='yyyy-MM-dd' /></td>
                         <td class="report_title">${report.title}</td>

@@ -174,6 +174,7 @@ public abstract class ActionBase {
         return number;
     }
 
+
     /**
      * 文字列をLocalDate型に変換する
      * @param strDate 変換前文字列
@@ -193,11 +194,6 @@ public abstract class ActionBase {
      */
     protected String getRequestParam(AttributeConst key) {
         return request.getParameter(key.getValue());
-    }
-
-    @SuppressWarnings("unchecked")
-    protected <E> E getRequestParameter(AttributeConst key) {
-        return (E) request.getParameter(key.getValue());
     }
 
     /**
